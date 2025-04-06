@@ -23,6 +23,10 @@ while(true){
         case 1:
             acelerar(carro);
             break;
+
+        case 0:
+            console.log("Saindo...");
+            break;
     
         default:
             break;
