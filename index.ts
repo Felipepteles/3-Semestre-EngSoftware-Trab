@@ -1,5 +1,5 @@
 import { Veiculo } from "./Veiculo";
-import prompt from "prompt-sync";
+import prompt from prompt-sync;
 
 const teclado = prompt();
 
@@ -36,6 +36,29 @@ function acelerar(veiculo: Veiculo): void{
     veiculo.velocidade += veiculo.potencia*0.1;
     console.log(veiculo.velocidade);
 }}
+
+function descerMarcha(veiculo: Veiculo): void {
+    if (veiculo.marchaAtual < 80 && veiculo.marchaAtual > 60) {
+        console.log("Veículo está reduzindo da 5° para 4° marcha");
+        veiculo.marchaAtual -= 4
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 60 && veiculo.marchaAtual > 40) {
+        console.log("Veículo está reduzindo da 4° para 3° marcha");
+        veiculo.marchaAtual -= 3
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 40 && veiculo.marchaAtual > 25) {
+        console.log("Veículo está reduzindo da 3° para 2° marcha");
+        veiculo.marchaAtual -= 2
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 25 && veiculo.marchaAtual > 10) {
+        console.log("Veículo está reduzindo da 2° para 1° marcha");
+        acelerar(veiculo)
+        veiculo.marchaAtual -= 1
+    } else {
+        console.log("O veículo já está na primeira marcha.");
+        acelerar(veiculo)
+    }
+}
 
 function criaVeiculo(): Veiculo{
     const veiculo: Veiculo = new Veiculo();
