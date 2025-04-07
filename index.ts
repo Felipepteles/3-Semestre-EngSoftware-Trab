@@ -50,4 +50,31 @@ function criaVeiculo(): Veiculo{
     return veiculo;
 }
 
+function subirMarcha(veiculo: Veiculo): void {
+    if (veiculo.marchaAtual == 0) {
+        console.log(`Veículo arrancando, na marcha 1.`);
+        veiculo.marchaAtual += 1
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 25 && veiculo.marchaAtual > 15) {
+        console.log(`Veículo na marcha 2.`);
+        veiculo.marchaAtual += 2
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 40 && veiculo.marchaAtual > 25) {
+        console.log(`Veículo na marcha 3.`);
+        veiculo.marchaAtual += 3
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 60 && veiculo.marchaAtual > 40) {
+        console.log(`Veículo na marcha 4.`);
+        veiculo.marchaAtual += 4
+        acelerar(veiculo)
+    } else if (veiculo.marchaAtual < 80 && veiculo.marchaAtual > 60) {
+        console.log(`Veículo na marcha 5.`);
+        acelerar(veiculo)
+        veiculo.marchaAtual += 5
+    } else {
+        console.log(`O veículo já está na última marcha.`);
+        acelerar(veiculo)
+    }
+}
+
 
